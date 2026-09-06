@@ -3,35 +3,51 @@
    Design System & Styles
    ============================================ */
 
-/* --- Google Fonts --- */
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+/* --- Google Fonts (Poppins & Inter) --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap');
 
 /* ============================================
    1. CSS Custom Properties (Design Tokens)
    ============================================ */
 :root {
-  /* Color Palette — Mocha & Cream Enhanced */
-  --color-cream: #F5EDE4;
-  --color-cream-soft: #FDF8F3;
-  --color-mocha: #6F4E37;
-  --color-mocha-dark: #3D2B1F;
-  --color-mocha-light: #A67B5B;
-  --color-latte: #D4B896;
+  /* Color Palette — Mocha + Cream (from PORTOFOLIO_CAROLINE.md) */
+  --color-cream-50: #FFFDF9;
+  --color-cream-100: #FBF3E7;
+  --color-cream-200: #F5E6D3;
+  --color-cream-300: #EFD9BF;
+
+  --color-mocha-100: #D8C3A5;
+  --color-mocha-200: #B99470;
+  --color-mocha-300: #8B5E3C;
+  --color-mocha-400: #6F4518;
+  --color-mocha-500: #4A2E1E;
+  --color-mocha-600: #3B2417;
+  --color-mocha-700: #2B1A10;
+
+  /* Semantic Token Mappings */
+  --color-cream: var(--color-cream-50);
+  --color-cream-soft: var(--color-cream-100);
+  --color-cream-alt: var(--color-cream-200);
+  --color-mocha: var(--color-mocha-300);
+  --color-mocha-dark: var(--color-mocha-700);
+  --color-mocha-light: var(--color-mocha-200);
+  --color-mocha-title: var(--color-mocha-600);
+  --color-latte: var(--color-mocha-100);
   --color-rose-dust: #C9A396;
   --color-sage: #8B9E82;
-  --color-text: #3B2E26;
+  --color-text: var(--color-mocha-500);
   --color-white: #FFFFFF;
 
   /* Derived / Utility Colors */
-  --color-cream-hover: #EDE3D8;
-  --color-mocha-hover: #5D4130;
-  --color-overlay: rgba(61, 43, 31, 0.55);
+  --color-cream-hover: var(--color-cream-200);
+  --color-mocha-hover: var(--color-mocha-400);
+  --color-overlay: rgba(43, 26, 16, 0.6);
   --color-success: #5A8F5A;
   --color-error: #C0544F;
 
   /* Typography */
-  --font-heading: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
-  --font-body: 'DM Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-heading: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   /* Font Sizes */
   --text-xs: 0.75rem;
@@ -195,7 +211,7 @@ p {
 }
 
 .section-alt {
-  background-color: var(--color-cream-soft);
+  background-color: var(--color-cream-200);
 }
 
 .section-tag {
@@ -592,15 +608,15 @@ p {
   height: 360px;
   border-radius: 50%;
   overflow: hidden;
-  border: 5px solid var(--color-latte);
-  box-shadow: var(--shadow-xl), 0 0 0 12px rgba(212, 184, 150, 0.15);
+  border: 5px solid var(--color-mocha-200);
+  box-shadow: var(--shadow-xl), 0 0 0 10px rgba(185, 148, 112, 0.2);
   position: relative;
   transition: transform var(--transition-slow), box-shadow var(--transition-slow);
 }
 
 .hero-image-frame:hover {
   transform: scale(1.02);
-  box-shadow: var(--shadow-mocha-glow), 0 0 0 12px rgba(212, 184, 150, 0.2);
+  box-shadow: var(--shadow-mocha-glow), 0 0 0 12px rgba(185, 148, 112, 0.28);
 }
 
 .hero-image-frame img {
@@ -646,14 +662,14 @@ p {
 .about-content {
   display: grid;
   grid-template-columns: 1fr;
-  gap: var(--space-8);
-  max-width: 800px;
+  gap: var(--space-6);
+  max-width: 860px;
   margin: 0 auto;
 }
 
 .about-text {
   font-size: var(--text-lg);
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--color-text);
   text-align: center;
 }
@@ -663,7 +679,77 @@ p {
   flex-wrap: wrap;
   justify-content: center;
   gap: var(--space-3);
-  margin-top: var(--space-4);
+  margin-top: var(--space-2);
+}
+
+/* Education Card in About */
+.education-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-mocha-100);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6) var(--space-8);
+  margin-top: var(--space-6);
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+  transition: all var(--transition-base);
+  text-align: left;
+}
+
+.education-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-mocha-200);
+}
+
+.education-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--color-mocha-200), var(--color-cream-200));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--color-mocha-700);
+}
+
+.education-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.education-info {
+  flex: 1;
+}
+
+.education-degree {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-mocha-700);
+  margin-bottom: 2px;
+}
+
+.education-institution {
+  font-size: var(--text-sm);
+  color: var(--color-mocha-400);
+  font-weight: 500;
+  margin-bottom: var(--space-2);
+}
+
+.education-period {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-mocha-600);
+  background-color: var(--color-cream-200);
+  border: 1px solid var(--color-mocha-100);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
 }
 
 /* ============================================
@@ -674,8 +760,9 @@ p {
   align-items: center;
   gap: var(--space-2);
   padding: var(--space-2) var(--space-5);
-  background-color: var(--color-latte);
-  color: var(--color-mocha-dark);
+  background-color: var(--color-cream-100);
+  color: var(--color-mocha-600);
+  border: 1.5px solid var(--color-mocha-200);
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-weight: 500;
@@ -685,6 +772,7 @@ p {
 .chip:hover {
   background-color: var(--color-mocha);
   color: var(--color-white);
+  border-color: var(--color-mocha);
   transform: translateY(-1px);
 }
 
@@ -703,10 +791,28 @@ p {
 /* ============================================
    10. Experience Section
    ============================================ */
+.experience-list {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
 .experience-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--space-12);
+}
+
+.org-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-6);
+}
+
+@media (max-width: 768px) {
+  .experience-grid,
+  .org-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .experience-column h3 {
@@ -833,21 +939,21 @@ p {
   line-height: 1.6;
 }
 
-/* Organization cards — simpler */
+/* Organization cards */
 .org-card {
   background: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-4) var(--space-5);
-  margin-bottom: var(--space-3);
-  border: 1px solid rgba(212, 184, 150, 0.25);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5) var(--space-6);
+  margin-bottom: var(--space-4);
+  border: 1px solid var(--color-mocha-100);
   box-shadow: var(--shadow-sm);
   transition: all var(--transition-base);
 }
 
 .org-card:hover {
   box-shadow: var(--shadow-md);
-  transform: translateY(-1px);
-  border-color: var(--color-latte);
+  transform: translateY(-2px);
+  border-color: var(--color-mocha-200);
 }
 
 .org-card-title {
@@ -856,11 +962,31 @@ p {
   font-weight: 600;
   color: var(--color-mocha-dark);
   margin-bottom: var(--space-1);
+  line-height: 1.4;
 }
 
 .org-card-subtitle {
-  font-size: var(--text-sm);
-  color: var(--color-mocha-light);
+  font-size: var(--text-xs);
+  color: var(--color-mocha-400);
+  font-weight: 500;
+  margin-bottom: var(--space-3);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.org-card-points {
+  margin-top: var(--space-2);
+  padding-left: var(--space-4);
+  list-style: disc;
+}
+
+.org-card-points li {
+  font-size: var(--text-xs);
+  color: var(--color-text);
+  margin-bottom: var(--space-1);
+  line-height: 1.55;
 }
 
 /* ============================================
@@ -1046,6 +1172,106 @@ p {
   background: var(--color-mocha);
   color: var(--color-white);
   border-color: var(--color-mocha);
+}
+
+.skill-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.skills-extra-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-6);
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .skills-extra-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.skills-extra-card {
+  background: var(--color-white);
+  border: 1px solid var(--color-mocha-100);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-sm);
+}
+
+.skills-extra-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--color-mocha-dark);
+  margin-bottom: var(--space-4);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.skills-extra-title svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-mocha);
+}
+
+.skills-pill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.skill-pill {
+  padding: var(--space-2) var(--space-4);
+  background: var(--color-cream-100);
+  color: var(--color-mocha-600);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  border: 1px solid var(--color-mocha-200);
+  transition: all var(--transition-base);
+}
+
+.skill-pill:hover {
+  background: var(--color-mocha-300);
+  color: var(--color-white);
+  border-color: var(--color-mocha-300);
+  transform: translateY(-1px);
+}
+
+.language-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-cream-50);
+  border: 1px solid var(--color-mocha-100);
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+}
+
+.language-row:last-child {
+  margin-bottom: 0;
+}
+
+.language-name {
+  font-weight: 600;
+  font-size: var(--text-sm);
+  color: var(--color-mocha-700);
+}
+
+.language-level {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-mocha-600);
+  background: var(--color-cream-200);
+  border: 1px solid var(--color-mocha-100);
+  padding: 2px 10px;
+  border-radius: var(--radius-full);
 }
 
 /* ============================================

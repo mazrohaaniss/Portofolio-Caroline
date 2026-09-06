@@ -1,5 +1,14 @@
 {
+  "name": "portofolio-caroline",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "live-server --port=3000",
+    "start": "live-server --port=3000"
+  },
   "dependencies": {
     "react-scripts": "^5.0.1"
+  },
+  "devDependencies": {
+    "live-server": "^1.2.2"
   }
 }
